@@ -2,6 +2,7 @@ from tensorflow.keras.preprocessing import image
 import method.color as color
 import method.hog as hog
 import method.vgg16 as vgg16
+import method.orb as orb
 import cv2
 
 # LOAD & RESIZE IMAGE FUNCTION 
@@ -21,6 +22,9 @@ def extract_img(img_path, method):
     if method == "color":
         img = load_image(img_path, -1)
         extractor = color.Color()
+    elif method == "orb":
+        img = load_image(img_path, -1)
+        extractor = orb.Orb()
     elif method == "hog":
         img = load_image(img_path, (224, 224))
         extractor = hog.Hog()
